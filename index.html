@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nomae Food Website</title>
+
+  <!-- Logo Image -->
+  <link href="image/Final out.png" rel="icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    /* body color */
+    body{
+      background-color: rgba(2, 65, 2, 0.925);
+    }
+
+    /* smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* make the navbar sticky */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-img {
+      height: 65px;
+      /* fits nicely inside navbar */
+      width: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      /* optional: makes edges smooth */
+      object-fit: contain;
+    }
+
+    @media (max-width: 550px) {
+      .logo-img {
+        display: none;
+      }
+    }
+
+
+    .navbar {
+      min-height: 60px;
+    }
+
+    /* ===== Carousel ===== */
+    #carouselExampleIndicators {
+      width: 100%;
+      height: 60vh;
+      margin: 0 auto;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+    }
+
+    /* ===== Cards ===== */
+    .equal-card {
+      width: 100%;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .equal-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .equal-card img {
+      height: 25vh;
+      object-fit: cover;
+    }
+
+    .equal-card .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      flex-grow: 1;
+    }
+
+    .card .btn {
+      margin-top: auto;
+      align-self: center;
+    }
+
+    @media (max-width: 576px) {
+      .equal-card {
+        height: auto;
+      }
+
+      .equal-card img {
+        height: 200px;
+      }
+
+      #carouselExampleIndicators,
+      .carousel-item img {
+        height: 40vh;
+      }
+    }
+
+    /* ===== Footer ===== */
+    footer.site-footer {
+      background-color: #212529;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+
+    footer.site-footer a {
+      color: #f8f9fa;
+      text-decoration: none;
+    }
+
+    footer.site-footer a:hover {
+      color: #0d6efd;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 15px;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .logo-img-footer {
+      height: 65px;
+      /* fits nicely inside navbar */
+      width: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      /* optional: makes edges smooth */
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#home">
+        <img src="image/Final out.png" alt="Logo" class="logo-img" >
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" 
+      aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item"><a class="nav-link active text-white" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#offers">Offers</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+        </ul>
+
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Home Section ===== -->
+  <section id="home" class="pt-3">
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" 
+        aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="image/carousels 1.webp" alt="broasted chicken" class="d-block w-100" />
+        </div>
+        <div class="carousel-item">
+          <img src="image/carousels 2.webp" alt="pizza" class="d-block w-100" />
+        </div>
+        <div class="carousel-item">
+          <img src="image/carousels 3.webp" alt="kuzhimandhi" class="d-block w-100" />
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== Menu Section ===== -->
+  <section id="menu" class="py-5">
+    <div class="container my-3">
+      <h2 class="text-center mb-4 ">Our Menu</h2>
+      <div class="row justify-content-center g-4">
+
+        <!-- Card 1 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/Broasted Chicken 1.avif" alt="Broasted Chicken" />
+            <div class="card-body">
+              <h5 class="card-title">Broasted Chicken</h5>
+              <p class="card-text">Juicy, crispy, and bursting with flavor, this non-veg main course is a must-try for meat lovers.</p>
+              <p class="price-tag">₹240</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/pizza 1.webp" alt="pizza" />
+            <div class="card-body">
+              <h5 class="card-title">Indi Chicken Tikka</h5>
+              <p class="card-text">Tandoori masala with chicken tikka, onion, red paprika & mint mayo.</p>
+              <p class="price-tag">₹359</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kuzhimandhi 1.webp" alt="kuzhimandhi" />
+            <div class="card-body">
+              <h5 class="card-title">Chicken Mandi</h5>
+              <p class="card-text">Loaded with double BBQ chicken, peri-peri chicken, tikka & grilled rashers.</p>
+              <p class="price-tag">₹650</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/Majboos Rice 1.avif" alt="Majboos Rice" />
+            <div class="card-body">
+              <h5 class="card-title">Chicken Majboos</h5>
+              <p class="card-text">Delightful mix of onion, capsicum, tomato & grilled mushrooms.</p>
+              <p class="price-tag">₹195</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/bukhari rice 1.jpg" alt="bukhari rice" />
+            <div class="card-body">
+              <h5 class="card-title">Chicken Bukhari Rice</h5>
+              <p class="card-text">Our classic Pizza Mania topped with crunchy onions for a crisp bite.</p>
+              <p class="price-tag">₹550</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kabsa 1.jpg" alt="kabsa" />
+            <div class="card-body">
+              <h5 class="card-title">Chicken Kabsa</h5>
+              <p class="card-text">Juicy paneer, crisp capsicum & spicy red paprika blend perfectly.</p>
+              <p class="price-tag">₹350</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/burgar 1.webp" alt="burgar" />
+            <div class="card-body">
+              <h5 class="card-title">Sambal Fried Chicken Burger</h5>
+              <p class="card-text">A classic pizza sprinkled with basil & parsley herbs for freshness.</p>
+              <p class="price-tag">₹130</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/sandwich 1.webp" alt="sandwich" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Cheese Sandwich</h5>
+              <p class="card-text">Loaded with 5 chicken toppings — tikka, rashers, meatballs & more.</p>
+              <p class="price-tag">₹40</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/sosage 1.jpg" alt="sosage" />
+            <div class="card-body">
+              <h5 class="card-title">Leaner Grilled Sausages</h5>
+              <p class="card-text">Loaded with 5 chicken toppings — tikka, rashers, meatballs & more.</p>
+              <p class="price-tag">₹20</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/pizze 2.avif" alt="pizza" />
+            <div class="card-body">
+              <h5 class="card-title">Pizza Margherita (p)</h5>
+              <p class="card-text">Pizza topped with our herb-infused signature pan sauce and mozzarella cheese.</p>  <!-- -->
+              <p class="price-tag">₹409</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/bukhari rice 2.jpg" alt="bukhari rice" />
+            <div class="card-body">
+              <h5 class="card-title">Al faham Chicken with Ruz Bukhari Rice</h5>
+              <p class="card-text">Loaded with 5 chicken toppings — tikka, rashers, meatballs & more.</p>
+              <p class="price-tag">₹500</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/Majboos Rice 2.jpg" alt="majboos" />
+            <div class="card-body">
+              <h5 class="card-title">Fish Majboos</h5>
+              <p class="card-text">Loaded with 5 chicken toppings — tikka, rashers, meatballs & more.</p>
+              <p class="price-tag">₹40</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 13 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/5a91f0ea-261e-4fa2-bca7-fc324ffc7065_HomeProductV1.jpg" alt="Food 9" />
+            <div class="card-body">
+              <h5 class="card-title">Chicken Platter (Korean Dip)</h5>
+              <p class="card-text">Combo of spicy chicken pops, boneless chicken & parcels with Korean dip.</p>
+              <p class="price-tag">₹499</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 14 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/93a127e2-3e03-472a-9ea4-6519460c0e4d_SpicyBonelessThighsCreamOnionDipHomeProductv1.jpg" alt="Food 10" />
+            <div class="card-body">
+              <h5 class="card-title">Chicken Platter (Cream Dip)</h5>
+              <p class="card-text">Spicy boneless thighs & chicken bombs served with creamy onion dip.</p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 15 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/a3bdd517-494f-4cc2-a08c-4933e01437ec_GrilledWingsLemonPepper.jpg" alt="Food 11" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Wings (Southern Spice)</h5>
+              <p class="card-text">Juicy grilled chicken wings roasted with rich southern spices.</p>
+              <p class="price-tag">₹169</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 16 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/c7632b6e-337f-4c71-83ae-74a1eb7b879c_FullsizeGrilledWingsSignatureGarlicChickenFeast.jpg" alt="Food 12" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Wings (Lemon Pepper)</h5>
+              <p class="card-text">Zesty grilled chicken wings with tangy lemon-pepper seasoning.</p>
+              <p class="price-tag">₹169</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 17 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/burgar 2.webp" alt="burgar" />
+            <div class="card-body">
+              <h5 class="card-title">Cheese Burger Recipe</h5>
+              <p class="card-text">Zesty grilled chicken wings with tangy lemon-pepper seasoning.</p>
+              <p class="price-tag">₹169</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 18 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/sandwich 2.jpg" alt="sandwich" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Cheese Sandwich</h5>
+              <p class="card-text">Zesty grilled chicken wings with tangy lemon-pepper seasoning.</p>
+              <p class="price-tag">₹149</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 19 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/sosage 2.jpeg" alt="sosage" />
+            <div class="card-body">
+              <h5 class="card-title">Hot Dog Sosage</h5>
+              <p class="card-text">Zesty grilled chicken wings with tangy lemon-pepper seasoning.</p>
+              <p class="price-tag">₹130</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 20 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kuzhimandhi 2.jpeg" alt="kuzhimandhi" />
+            <div class="card-body">
+              <h5 class="card-title">Beef Mandi</h5>
+              <p class="card-text">Zesty grilled chicken wings with tangy lemon-pepper seasoning.</p>
+              <p class="price-tag">₹700</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 21 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/pizza 3.avif" alt="pizza" />
+            <div class="card-body">
+              <h5 class="card-title">Margherita Ultimate Cheese Pizza</h5>
+              <p class="card-text">Classic cheese pizza with extra molten cheese and a melty gooey</p>
+              <p class="price-tag">₹244</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 22 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/burgar 3.jpg" alt="burgar" />
+            <div class="card-body">
+              <h5 class="card-title">Veg Burgar</h5>
+              <p class="card-text">Classic cheese pizza with extra molten cheese and a melty gooey Cheese Crown on the crust</p>
+              <p class="price-tag">₹244</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 23 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/sandwiches  3.jpg" alt="sandwiches" />
+            <div class="card-body">
+              <h5 class="card-title">Sub Sandwiches</h5>
+              <p class="card-text">Classic cheese pizza with extra molten cheese and a melty gooey Cheese Crown on the crust</p>
+              <p class="price-tag">₹244</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 24 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kuzhimandhi 3.jpeg" alt="kuzhimandhi" />
+            <div class="card-body">
+              <h5 class="card-title">Mutton Mandi</h5>
+              <p class="card-text">Classic cheese pizza with extra molten cheese and a melty gooey Cheese Crown on the crust</p>
+              <p class="price-tag">₹244</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 25 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/pizze 4.avif" alt="pizza" />
+            <div class="card-body">
+              <h5 class="card-title">Classic Herbed Chicken & Capsicum</h5>
+              <p class="card-text">Pizza topped with our classic signature pan sauce</p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 26 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/burgar  4.avif" alt="burgar" />
+            <div class="card-body">
+              <h5 class="card-title">KFC Burgar</h5>
+              <p class="card-text">Pizza topped with our classic signature pan sauce, herbed chicken </p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 27 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/sandwich 4.jpg" alt="sandwich" />
+            <div class="card-body">
+              <h5 class="card-title">Ice Cream Sandwich</h5>
+              <p class="card-text">Pizza topped with our classic signature pan sauce, herbed chicken </p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 28 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kuzhimandhi  4.jpeg" alt="kuzhimandhi" />
+            <div class="card-body">
+              <h5 class="card-title">Alfam Mandi</h5>
+              <p class="card-text">Pizza topped with our classic signature pan sauce, herbed chicken </p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 29 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kuzhimandhi  5.jpeg" alt="kuzhimandhi" />
+            <div class="card-body">
+              <h5 class="card-title">Green Chicken Alfaham Mandi</h5>
+              <p class="card-text">Pizza topped with our classic signature pan sauce </p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 30 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kuzhimandhi  6.jpg" alt="kuzhimandhi" />
+            <div class="card-body">
+              <h5 class="card-title">Green Chicken Alfaham Mandi</h5>
+              <p class="card-text">Pizza topped with our classic signature pan sauce </p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 31 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kuzhimandhi  7.jpg" alt="kuzhimandhi" />
+            <div class="card-body">
+              <h5 class="card-title">Green Chicken Alfaham Mandi</h5>
+              <p class="card-text">Pizza topped with our classic signature pan sauce </p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 32 -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card equal-card">
+            <img src="image/kuzhimandhi  8.avif" alt="kuzhimandhi" />
+            <div class="card-body">
+              <h5 class="card-title">Nahdi Kuzhi Mandi</h5>
+              <p class="card-text">Pizza topped with our classic signature pan sauce </p>
+              <p class="price-tag">₹179</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Offers Section ===== -->
+  <section id="offers" class="py-5 text-center bg-success">
+    <div class="container">
+      <h2>Special Offers 🎉</h2>
+      <p class="lead mt-3"> Get 20% off on your first online order and exclusive weekend combos! </p>
+      <a href="#contact" class="btn btn-dark mt-3">Grab the Offer</a>
+    </div>
+  </section>
+
+  <!-- ===== Contact / Footer Section ===== -->
+  <section id="contact" class="pt-4">
+    <footer class="site-footer">
+      <div class="d-flex justify-content-center ">
+        <a href="#home"><img src="image/Final out.png" alt="Logo" class="logo-img-footer" ></a>
+      </div>
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 mb-3">
+            <h5>Nomae</h5>
+            <p>Delicious food and more, crafted with love and fresh ingredients every day!</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="#offers">Offers</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Contact Us</h5>
+            <p>Email: nomae@foodie.com</p>
+            <p>Phone: +91 8592896711</p>
+            <p>Location: Calicut, Kerala, India</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          © 2025 Suuuslice. All rights reserved. | Designed with ❤️ by Nomae Team
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
